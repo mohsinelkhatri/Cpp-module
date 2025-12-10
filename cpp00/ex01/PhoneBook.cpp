@@ -6,11 +6,12 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:27:09 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/09 14:55:57 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:17:17 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 
 PhoneBook::PhoneBook() : count(0), nextIndex(0) {}
 
@@ -59,13 +60,8 @@ void PhoneBook::searchContacts() const
         std::string input;
         if (!std::getline(std::cin, input)) {
             return;
-        }
-        if (!isdigit(input[0])) {
-            std::cout << "Invalid index. Please Retry" << std::endl;
-            continue;
-        }
-        
-        int index = input[0] - '0';
+        }        
+        int index = std::atoi(input.c_str());
         if (index < 0 || index >= count) {
             std::cout << "Invalid index. Please Retry" << std::endl;
             continue;

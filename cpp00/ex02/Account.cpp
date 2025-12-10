@@ -6,7 +6,7 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 14:41:48 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/10 13:16:35 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:22:13 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,12 @@ Account::Account(int initial_deposit) {
               << "created" << std::endl;
 }
 
-
 Account::~Account(void) {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";"
               << "amount:" << _amount << ";"
               << "closed" << std::endl;
 }
-
 
 int Account::getNbAccounts(void) {
     return _nbAccounts;
@@ -96,7 +94,6 @@ void Account::makeDeposit(int deposit) {
     std::cout << "amount:" << _amount << ";"
               << "nb_deposits:" << _nbDeposits << std::endl;
 }
-
 
 bool Account::makeWithdrawal(int withdrawal) {
     _displayTimestamp();
