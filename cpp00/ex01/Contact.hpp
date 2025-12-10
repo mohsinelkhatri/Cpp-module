@@ -6,7 +6,7 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:27:04 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/03 12:35:20 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:54:13 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ private:
 
 public:
     Contact();
-    void setcontact();
+    bool setcontact();
     void displayShort(int index) const;
     void displayFull() const;
     bool isEmpty() const;

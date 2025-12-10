@@ -6,7 +6,7 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:29:47 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/04 14:39:02 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:08:05 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ int main() {
 
     while (true) 
     {
-        std::cout << "Enter command 1- ADD, 2- SEARCH, 3- EXIT : ";
-        std::getline(std::cin, command);
+        std::cout << "Enter command ADD, SEARCH, EXIT : ";
+         if(!std::getline(std::cin, command)) {
+            std::cout << "\nExiting PhoneBook." << std::endl;
+            break;
+         }
 
-        if (command == "ADD" || command == "add" || command == "1") {
+        if (command == "ADD") {
             phoneBook.addContact();
-        } else if (command == "SEARCH" || command == "search"  || command == "2") {
+        } else if (command == "SEARCH") {
             phoneBook.searchContacts();
-        } else if (command == "EXIT" || command == "exit" || command == "3") {
+        } else if (command == "EXIT") {
             std::cout << "Exiting PhoneBook. Goodbye!" << std::endl;
             break;
         } else {

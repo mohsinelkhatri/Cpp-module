@@ -6,7 +6,7 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:27:09 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/04 14:39:29 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:55:57 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ PhoneBook::PhoneBook() : count(0), nextIndex(0) {}
 void PhoneBook::addContact() 
 {
     Contact newContact;
-    newContact.setcontact();
+    if (!newContact.setcontact()) {
+        return;
+    }
     if(newContact.isEmpty()) {
         std::cout << "Contact not added. All fields are required." << std::endl;
         return;
@@ -55,8 +57,10 @@ void PhoneBook::searchContacts() const
     {
         std::cout << "Enter the index of the contact to view details: ";
         std::string input;
-        std::getline(std::cin, input);
-        if (input.length() != 1 || !isdigit(input[0])) {
+        if (!std::getline(std::cin, input)) {
+            return;
+        }
+        if (!isdigit(input[0])) {
             std::cout << "Invalid index. Please Retry" << std::endl;
             continue;
         }

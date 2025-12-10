@@ -6,49 +6,67 @@
 /*   By: melkhatr <melkhatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:27:02 by melkhatr          #+#    #+#             */
-/*   Updated: 2025/12/03 12:48:25 by melkhatr         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:55:24 by melkhatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Contact.hpp"
 
 Contact::Contact() {}
 
-void Contact::setcontact() {
+bool Contact::setcontact() {
     std::cout << "Enter First Name: ";
-    std::getline(std::cin, firstName);
+    if (!std::getline(std::cin, firstName)) {
+        return false;
+    }
     while (firstName.empty()) {
         std::cout << "First Name cannot be empty.\nEnter First Name: ";
-        std::getline(std::cin, firstName);
+        if (!std::getline(std::cin, firstName)) {
+            return false;
+        }
     }
     std::cout << "Enter Last Name: ";
-    std::getline(std::cin, lastName);
+    if (!std::getline(std::cin, lastName)) {
+        return false;
+    }
     while (lastName.empty()) {
         std::cout << "Last Name cannot be empty.\nEnter Last Name: ";
-        std::getline(std::cin, lastName);
+        if (!std::getline(std::cin, lastName)) {
+            return false;
+        }
     }
     std::cout << "Enter Nickname: ";
-    std::getline(std::cin, nickName);
+    if(!std::getline(std::cin, nickName)) {
+        return false;
+    }
     while (nickName.empty()) {
         std::cout << "Nickname cannot be empty.\nEnter Nickname: ";
-        std::getline(std::cin, nickName);
+        if(!std::getline(std::cin, nickName)) {
+            return false;
+        }
     }
     std::cout << "Enter Phone Number: ";
-    std::getline(std::cin, phoneNumber);
-    while (phoneNumber.empty() || phoneNumber.length() > 10) {
-        if (phoneNumber.length() > 10){
-            std::cout << "Phone Number must be at least 10 digits..\nEnter Phone Number:";
-            std::getline(std::cin, phoneNumber);
-        }
+    if(!std::getline(std::cin, phoneNumber)) {
+        return false;
+    }
+    while (phoneNumber.empty()) {
         std::cout << "Phone Number cannot be empty.\nEnter Phone Number: ";
-        std::getline(std::cin, phoneNumber);
+        if(!std::getline(std::cin, phoneNumber)) {
+            return false;
+        }
     }
     std::cout << "Enter Darkest Secret: ";
-    std::getline(std::cin, darkestSecret);
+    if(!std::getline(std::cin, darkestSecret)) {
+        return false;
+    }
     while (darkestSecret.empty()) {
         std::cout << "Darkest Secret cannot be empty\nEnter Darkest Secret: ";
-        std::getline(std::cin, darkestSecret);
+        if(!std::getline(std::cin, darkestSecret)) {
+            return false;
+        }
     }
+    return true;
 }
 bool Contact::isEmpty() const {
     return firstName.empty() && lastName.empty() && nickName.empty() &&
